@@ -52,8 +52,10 @@ public class Card {
         faceName=faceName.toLowerCase();
         List validFaceNames = Arrays.asList("2","3","4","5","6","7","8","9","10","jack",
                                             "queen","king","ace");
-        if (validFaceNames.contains(faceName))
+        if (validFaceNames.contains(faceName)){
             this.faceName = faceName;
+            setFaceValue();
+        }
         else
             throw new IllegalArgumentException("face name must be 2,3,4,5,6,7,8,9,10,jack,queen,king or ace");
     }
@@ -62,7 +64,9 @@ public class Card {
         return faceValue;
     }
 
-    public void setFaceValue(int faceValue) {
-        this.faceValue = faceValue;
+    private void setFaceValue() {
+        List validFaceNames = Arrays.asList("2","3","4","5","6","7","8","9","10","jack",
+                "queen","king","ace");
+        this.faceValue = validFaceNames.indexOf(faceName)+2;
     }
 }
